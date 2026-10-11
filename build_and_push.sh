@@ -9,10 +9,12 @@ TAG="latest"
 echo "🔐 Logging into Docker Hub (if not already logged in)..."
 docker login
 
-echo "🔨 Building and tagging Docker image via Compose..."
-docker compose build
+echo "🔨 Building Docker image (linux/amd64) from root context..."
+# Use ".." as the build context so it can see the "GetCookie" folder, 
+# and point "-f" to your Dockerfile inside the current subfolder.
+docker build --platform linux/amd64 -f Dockerfile -t $IMAGE_NAME:$TAG ..
 
-echo "🚀 Pushing Docker image to registry..."
+echo "🏷️ Tagging and pushing Docker image to registry..."
 docker push $IMAGE_NAME:$TAG
 
 echo "✅ Successfully built and pushed $IMAGE_NAME:$TAG!"

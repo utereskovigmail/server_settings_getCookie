@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  cookie-scraper:
+    build:
+      context: ..          # Points to root GetCookie directory
+      dockerfile: server_settings_getCookie/Dockerfile
+    image: your_dockerhub_username/cookie-scraper:latest
+    container_name: cookie-scraper-app
+    ports:
+      - "8005:8005"
+    restart: unless-stopped

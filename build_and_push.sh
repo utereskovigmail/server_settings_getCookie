@@ -3,7 +3,7 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-IMAGE_NAME="your_dockerhub_username/cookie-scraper"
+IMAGE_NAME="utereskovi/cookie-scraper"
 TAG="latest"
 
 echo "🔐 Logging into Docker Hub (if not already logged in)..."
